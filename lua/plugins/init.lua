@@ -54,6 +54,14 @@ require('lazy').setup({
       require('plugins.comment')
     end,
   },
+  {-- Show indent scope
+    'echasnovski/mini.indentscope',
+    event = 'BufEnter',
+    version = '*',
+    config = function()
+      require('mini.indentscope').setup()
+    end,
+  },
 }, {
   defaults = {
     lazy = true,

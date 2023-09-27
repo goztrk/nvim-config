@@ -6,7 +6,7 @@ vim.api.nvim_create_autocmd('InsertLeave', { pattern = '*', command = 'set norel
 
 -- Fix issue that cursor changing to block if loose focus in insert mode
 vim.api.nvim_create_autocmd('FocusGained', { pattern = '*', callback = function()
-  if tblin(vim.fn.mode(), {'i', 'ci', 've'}) then
+  if vim.tbl_contains({'i', 'ci', 've'}, vim.fn.mode()) then
     vim.opt.guicursor = vim.opt.guicursor
   end
 end })
