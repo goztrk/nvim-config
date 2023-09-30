@@ -15,6 +15,15 @@ vim.opt.rtp:prepend(lazypath)
 --   * Wansmer/treesj - splitting/joining blocks of code like arrays, hashes, statements, objects, dictionaries, etc.
 
 require('lazy').setup({
+  {
+    'folke/tokyonight.nvim',
+    lazy = false,
+    priority = 1000,
+    opts = {},
+    init = function()
+      vim.cmd([[colorscheme tokyonight-night]])
+    end,
+  },
   {-- Collection of useful lua functions
     'nvim-lua/plenary.nvim'
   },
@@ -24,6 +33,18 @@ require('lazy').setup({
     config = function()
       require('plugins.treesitter')
     end,
+  },
+  {-- LSP
+    'neovim/nvim-lspconfig',
+    lazy = false,
+    dependencies = {
+      'mason.nvim',
+      'williamboman/mason-lspconfig.nvim',
+    },
+  },
+  {
+    'williamboman/mason.nvim',
+    cmd = 'Mason',
   },
   {-- Telescope.nvim to easily find and open files
     'nvim-telescope/telescope.nvim',
@@ -59,12 +80,20 @@ require('lazy').setup({
     event = 'BufEnter',
     version = '*',
     config = function()
-      require('mini.indentscope').setup()
+      require('mini.indentscope').setup({
+        draw = {
+          delay = 10,
+          animation = require('mini.indentscope').gen_animation.none()
+        },
+      })
     end,
   },
 }, {
   defaults = {
     lazy = true,
+  },
+  install = {
+    colorscheme = { "tokyonight-night" },
   },
   concurrency = 5,
   debug = false,

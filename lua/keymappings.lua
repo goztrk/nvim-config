@@ -11,8 +11,8 @@ keymap('n', '<C-s>', '<Cmd>w<CR>')
 keymap('i', '<C-s>', '<Cmd>w<CR>')
 
 -- Quit
-keymap('n', '<C-x>', '<Cmd>q<CR>')
-keymap('i', '<C-x>', '<Cmd>q<CR>')
+keymap('n', '<C-q>', '<Cmd>q<CR>')
+keymap('i', '<C-q>', '<Cmd>q<CR>')
 
 -- Switch buffers using <Tab> key. <Shift>+<Tab> for previous tab
 keymap('n', '<Tab>', '<Cmd>bn<CR>', silent)
