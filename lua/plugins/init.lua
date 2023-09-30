@@ -46,6 +46,17 @@ require('lazy').setup({
     'williamboman/mason.nvim',
     cmd = 'Mason',
   },
+  {
+    'pmizio/typescript-tools.nvim',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'neovim/nvim-lspconfig',
+    },
+    opts = {},
+    config = function()
+      require('lsp.typescript-tools')
+    end
+  },
   {-- Telescope.nvim to easily find and open files
     'nvim-telescope/telescope.nvim',
     event = 'VeryLazy',
